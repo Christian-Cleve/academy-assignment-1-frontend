@@ -1,5 +1,5 @@
 # Welcome to our template for Ionic React web and native apps!
-
+# Hej fra DEMO Commit
 ## Getting started
 To get started, run `npm install` followed by `npm prepare`.
 
