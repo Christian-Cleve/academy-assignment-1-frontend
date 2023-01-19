@@ -34,7 +34,7 @@ type SocialLoginButtonProps = {
 };
 
 const SocialLoginButton: React.FC<SocialLoginButtonProps> = ({ onClick, provider, className, disabled = false }) => (
-  <IonButton onClick={onClick} disabled={disabled} className={`${variants[provider].style} ${className} w-full`}>
+  <IonButton onClick={onClick} disabled={disabled} className={`${variants[provider].style} ${className} w-full rounded-full overflow-hidden`}>
     <IonIcon icon={variants[provider].icon} slot="icon-only" />
   </IonButton>
 );

@@ -7,6 +7,7 @@ module.exports = {
         'primary-brand': '#202124',
         'brand-grey': '#34363c',
         'brand-light-grey': '#EAEAEA',
+        'cozy-brown':'#e48500',
       },
       gridColumn: {
         'span-16': 'span 16 / span 16',

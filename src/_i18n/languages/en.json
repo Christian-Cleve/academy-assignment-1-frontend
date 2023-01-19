@@ -1,7 +1,10 @@
 {
   "landingPage": {
     "title": "Welcome to MeeWs frontend template",
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "welcome": "Welcome",
+    "indexText":"Din app-udviklings template til alle behov dine app-udviklings behov!"
+    
   },
   "authentication": {
     "login": "Login",

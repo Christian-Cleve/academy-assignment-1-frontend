@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonPage, IonContent, IonImg } from '@ionic/react';
 import LoginForm from 'ui/components/authentication/login/LoginForm';
-import img3 from 'static/assets/img/campfire.jpg';
+
 
 const LoginPage: React.FC = () => {
   return (
