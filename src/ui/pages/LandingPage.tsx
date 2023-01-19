@@ -1,6 +1,10 @@
+('https://fonts.cdnfonts.com/css/norse');
 import React from 'react';
 import { IonButton, IonContent, IonImg, IonPage, useIonRouter } from '@ionic/react';
-import img from 'static/assets/img/meew-bg.jpg';
+import img from 'static/assets/img/Thor-hammer-wolf.jpeg';
+import img2 from 'static/assets/img/long-house.jpg';
+import { Center } from 'ui/components/generic/Center';
+import { t } from 'i18next';
 
 /**
  * Notice that the img will "underlap" under the content, to keep its proportion.
@@ -10,16 +14,18 @@ const LandingPage: React.FC = () => {
   const router = useIonRouter();
   return (
     <IonPage>
-      <IonContent fullscreen>
-        <IonImg src={img} class="fixed w-full h-auto" />
-        <div className="fixed w-full bg-white bottom-0 p-5">
-          <h3>Velkommen til MeeW Apps!</h3>
-          <p className="pb-4">Din app-udviklings template til alle behov dine app-udviklings behov!</p>
-
-          <IonButton onClick={() => router.push('/login')} expand="full" className="h-[50px]">
+      <IonContent fullscreen >
+      <IonImg src={img2} class="object-cover h-full blur-sm"/>
+        <IonImg src={img} class="top-48 rounded-full overflow-hidden m-8 fixed content-center" />
+       
+          <div className=" fixed w-full bg-indigo-50 bottom-0 m-0 rounded-full opacity-60 flex flex-col items-center">
+            <h3 className='text-center font-Norse'> {t('authentication.signUp')} </h3>
+          <p className="pb-4 text-center font-Norse font-bold">Din app-udviklings template til alle behov dine app-udviklings behov!</p>
+          <IonButton onClick={() => router.push('/login')} className='rounded-full overflow-hidden object-center'>
             Kom i gang
           </IonButton>
         </div>
+       
       </IonContent>
     </IonPage>
   );

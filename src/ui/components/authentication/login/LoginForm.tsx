@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonButton, IonIcon, IonInput, IonItem, IonText, useIonRouter, useIonLoading, useIonAlert } from '@ionic/react';
+import { IonButton, IonIcon, IonInput, IonItem, IonText, useIonRouter, useIonLoading, useIonAlert, IonImg } from '@ionic/react';
 import { at, eyeOffOutline, eyeOutline, lockClosedOutline } from 'ionicons/icons';
 import { useAuthUserStore } from 'store/user';
 import { supabase } from 'apis/supabaseClient';
@@ -7,6 +7,7 @@ import SocialLoginButton from '../social-login-buttons/SocialLoginButton';
 import { Provider } from '@supabase/supabase-js';
 import Separator from 'ui/components/generic/Separator';
 import { t } from 'i18next';
+import img3 from 'static/assets/img/campfire.jpg';
 
 type LoginFormProps = {
   togglePasswordButtonType?: 'text' | 'icon' | 'none';
@@ -83,6 +84,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ togglePasswordButtonType = 'icon'
           <IonIcon icon={at} size="medium" className="text-primary-brand" />
         </IonItem>
 
+      <IonImg src={img3} class='object-fill h-full blur-sm'/>
         <IonItem lines="none" color={'white-background'} class="border border-grey-text mt-5">
           <IonInput
             value={password}
