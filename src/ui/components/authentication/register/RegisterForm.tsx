@@ -134,10 +134,10 @@ sigInButton =  (<Center>
 
   return (
     <div className="flex h-full justify-center items-center w-full  bg-cozy-brown">
-      <form className="sm:w-[400px] w-3/4 relative bg-stone-900 rounded-3xl" onSubmit={handleSignUp}>
+      <form className="sm:w-[400px] w-3/4 relative bg-stone-900 rounded-3xl p-5" onSubmit={handleSignUp}>
         
         <div className="flex items-center">
-          <IonIcon onClick={() => history.goBack()} icon={chevronBackCircle} size={'large'} color={'primary-brand'} className="my-2 ml-2 cursor-pointer bg-amber-800 rounded-full overflow-hidden" />
+          <IonIcon onClick={() => history.goBack()} icon={chevronBackCircle} size={'large'} color={'primary-brand'} className=" cursor-pointer bg-amber-800 rounded-full overflow-hidden" />
           <Center>
           <IonText className=" text-white text-xl font-extrabold">{t('authentication.signUp')}</IonText>
           </Center>

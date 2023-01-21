@@ -133,9 +133,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ togglePasswordButtonType = 'icon'
        
         {loginButton}
         
-
-      
-
           <IonButton expand='full' className="w-full border-amber-800 border-2 rounded-lg " onClick={handleSignUp}>
             {t('authentication.signUp')}
           </IonButton>
