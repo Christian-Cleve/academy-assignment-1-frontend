@@ -3,7 +3,12 @@
     "title": "Welcome to MeeWs frontend template",
     "signIn": "Sign in",
     "welcome": "Welcome",
-    "indexText":"Din app-udviklings template til alle behov dine app-udviklings behov!"
+    "indexText":"Din app-udviklings template til alle behov dine app-udviklings behov!",
+    "name":"Name",
+    "email":"E-Mail",
+    "password":"Password",
+    "changePass":"Change Password? and Email?",
+    "profile":"Profile"
     
   },
   "authentication": {

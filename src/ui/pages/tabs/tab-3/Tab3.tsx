@@ -1,14 +1,14 @@
-import React from 'react';
-import { IonContent, IonTitle } from '@ionic/react';
+import React, { useEffect } from 'react';
+import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/react';
 import { t } from 'i18next';
 import Card from 'ui/components/Cards/Card';
 
-
-const Tab3: React.FC = () => (
-  <IonContent color={'god-back'}>
-    <IonTitle>{t('landingPage.welcome')}</IonTitle>
-   <Card/>
-  </IonContent>
-);
+const Tab3: React.FC = () => {
+  return (
+    <IonContent className="mb-20">
+      <Card />
+    </IonContent>
+  );
+};
 
 export default Tab3;

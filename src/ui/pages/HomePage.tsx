@@ -44,13 +44,13 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <IonPage id="main-content" >
+    <IonPage id="main-content">
       <IonHeader>
         <IonToolbar color={'back-back'}>
-          <IonButton onClick={handleLogOut} slot="end" >
+          <IonButton onClick={handleLogOut} slot="end">
             Log ud
           </IonButton>
-          <IonButtons slot="start" >
+          <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
         </IonToolbar>
@@ -62,13 +62,12 @@ const HomePage: React.FC = () => {
               {pages.map((p, i) => {
                 return <Route key={i} exact path={p.path} component={p.component} />;
               })}
-
               <Route exact path="/home">
                 <Redirect to={pages.filter((p) => p.redirect)[0].path} />
               </Route>
             </IonRouterOutlet>
 
-            <IonTabBar slot="bottom"class={'h-[70px] border-t-[1px] border'} color={'back-back'}>
+            <IonTabBar slot="bottom" class={'h-[70px] border-t-[1px] border'} color={'back-back'}>
               {pages.map((p, i) => {
                 return (
                   <IonTabButton key={i} tab={`tab${i}`} href={p.path}>
@@ -87,7 +86,6 @@ const HomePage: React.FC = () => {
 export default HomePage;
 
 const pages = [
- 
   {
     name: 'add-god',
     icon: addCircleOutline,
@@ -100,14 +98,14 @@ const pages = [
     icon: bonfireOutline,
     path: '/tab3',
     component: Tab3,
-    redirect: true,
+    redirect: false,
   },
   {
     name: 'info-page',
     icon: peopleOutline,
     path: '/tab4',
     component: Tab4,
-    redirect: false,
+    redirect: true,
   },
 ];
 
