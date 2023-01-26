@@ -84,19 +84,19 @@ export interface Database {
         Row: {
           email: string
           id: string
-          lname: string
+          Lname: string
           name: string
         }
         Insert: {
           email: string
           id?: string
-          lname: string
+          Lname: string
           name: string
         }
         Update: {
           email?: string
           id?: string
-          lname?: string
+          Lname?: string
           name?: string
         }
       }

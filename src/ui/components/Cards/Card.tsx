@@ -25,14 +25,33 @@ import { Center } from '../generic/Center';
 import img from 'static/assets/img/thor.jpg';
 import { supabase } from 'apis/supabaseClient';
 import { Info } from 'types/test';
+import { createClient } from '@supabase/supabase-js';
 
-interface Prop {
-  id: number;
-  name: string;
-  img: string;
-}
+type titles = {
+  title: string | null;
+};
+
 const Card: React.FC = () => {
   const [getInfo, setGetInfo] = useState<Info[] | null>();
+  const [title, setTitle] = useState<titles[] | undefined>();
+
+  async function getImage(image: string) {
+    const edFunction = async () => {
+      const { data, error } = await supabase.functions.invoke('fetchImg', {
+        body: { img: `${image.toUpperCase()}/${image.toLowerCase()}.jpg` },
+      });
+      if (data) {
+        console.log(data.publicUrl);
+        setTitle(data.publicUrl);
+      }
+      if (error) {
+        error('fic');
+      }
+      return data.publicUrl;
+    };
+
+    return edFunction();
+  }
 
   const handelInfo = async () => {
     const { data, error } = await supabase.from('info').select();
@@ -41,9 +60,10 @@ const Card: React.FC = () => {
 
   useEffect(() => {
     handelInfo();
+    getImage('');
   }, []);
 
-  const props: Info[] = [
+  /* const props: Info[] = [
     {
       id: 1,
       title: '',
@@ -63,7 +83,9 @@ const Card: React.FC = () => {
       img: '',
     },
   ];
+  */
   const [selectedPost, setSelectedPost] = useState<Info | undefined>(undefined);
+
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -74,7 +96,7 @@ const Card: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        {getInfo && getInfo?.length > 0 && (
+        {getInfo && title && (
           <IonList className="object-cover bg-back">
             {getInfo.map((info) => (
               <IonItem key={'card-' + info.id} lines="none" className="">

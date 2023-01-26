@@ -8,7 +8,8 @@
     "email":"E-Mail",
     "password":"Password",
     "changePass":"Change Password? and Email?",
-    "profile":"Profile"
+    "profile":"Profile",
+    "error":"Error"
     
   },
   "authentication": {
@@ -40,6 +41,7 @@
     "sendingEmail": "Sending email...",
     "resetLinkSent": "Reset link sent",
     "ifAccountExists": "If an account exists, a password reset link has been sent.",
-    "sendResetLink": "Send reset link"
+    "sendResetLink": "Send reset link",
+    "update":"Update"
   }
 }

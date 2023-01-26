@@ -76,64 +76,63 @@ const LoginForm: React.FC<LoginFormProps> = ({ togglePasswordButtonType = 'icon'
     );
   };
 
-  
-  if(!isSubmitDisabled){
-    const bord = ' border-amber-800 border-2';
-  
-  } 
-
   let loginButton;
   if (!isSubmitDisabled) {
-    loginButton = ( <IonButton expand='full' className="w-full border-2 border-amber-800  rounded-lg " onClick={handleLogin}>
-    {t('authentication.login')}
-    </IonButton>);
+    loginButton = (
+      <IonButton expand="full" className="w-full border-2 border-amber-800  rounded-lg " onClick={handleLogin}>
+        {t('authentication.login')}
+      </IonButton>
+    );
   } else {
-    loginButton = ( <IonButton expand='full' className="w-full  rounded-lg " onClick={handleLogin} disabled={isSubmitDisabled}>
-    {t('authentication.login')}
-  </IonButton>) ;
+    loginButton = (
+      <IonButton expand="full" className="w-full  rounded-lg " onClick={handleLogin} disabled={isSubmitDisabled}>
+        {t('authentication.login')}
+      </IonButton>
+    );
   }
-    
 
   return (
     /*bg-no-repeat bg-cover bg-center
-		bg-[url('static/assets/img/campfire.jpg')] til baggrund*/ 
+		bg-[url('static/assets/img/campfire.jpg')] til baggrund*/
     <div className="flex h-full justify-center items-center w-full mix-blend-multiply bg-cozy-brown">
       <form className="sm:w-[600px]  bg-stone-900 rounded-3xl p-5" onSubmit={handleLogin}>
-       
         <Center>
-        <IonText className="text-slate-300 text-[50px] font-extrabold">{t('authentication.login')}</IonText>
+          <IonText className="text-slate-300 text-[50px] font-extrabold">{t('authentication.login')}</IonText>
         </Center>
 
-
         <Center>
-        <IonItem lines="none" color={'white-background'} class="border border-grey-text mt-8 sm:w-[400px] items-center rounded-lg">
-          <IonInput value={email} placeholder={t('authentication.email')} onIonChange={(e) => setEmail(e.detail.value ?? '')} type="email" required class="h-[59px] items-center" />
-          <IonIcon icon={at} size="medium" className="text-primary-brand" />
-        </IonItem>
-        </Center>
-
-
-       <Center>
-        <IonItem lines="none" color={'white-background'} class="border border-grey-text mt-8  sm:w-[400px] items-center rounded-lg">
-          <IonInput
-            value={password}
-            placeholder={t('authentication.password')}
-            onIonChange={(e) => setPassword(e.detail.value ?? '')}
-            type={isPasswordRevealed ? 'text' : 'password'}
-            required
-            class="h-[59px] items-center"
+          <IonItem lines="none" color={'white-background'} class="border border-grey-text mt-8 sm:w-[400px] items-center rounded-lg">
+            <IonInput
+              value={email}
+              placeholder={t('authentication.email')}
+              onIonChange={(e) => setEmail(e.detail.value ?? '')}
+              type="email"
+              required
+              class="h-[59px] items-center"
             />
-          {password !== '' && makeToggleRevealButton()}
-          {password === '' && togglePasswordButtonType !== 'none' && <IonIcon icon={lockClosedOutline} size="medium" className="text-primary-brand" />}
-        </IonItem>
-      </Center>
+            <IonIcon icon={at} size="medium" className="text-primary-brand" />
+          </IonItem>
+        </Center>
+
+        <Center>
+          <IonItem lines="none" color={'white-background'} class="border border-grey-text mt-8  sm:w-[400px] items-center rounded-lg">
+            <IonInput
+              value={password}
+              placeholder={t('authentication.password')}
+              onIonChange={(e) => setPassword(e.detail.value ?? '')}
+              type={isPasswordRevealed ? 'text' : 'password'}
+              required
+              class="h-[59px] items-center"
+            />
+            {password !== '' && makeToggleRevealButton()}
+            {password === '' && togglePasswordButtonType !== 'none' && <IonIcon icon={lockClosedOutline} size="medium" className="text-primary-brand" />}
+          </IonItem>
+        </Center>
 
         <div className="grid grid-cols-2 gap-5 mt-5 p-5">
-        
-       
-        {loginButton}
-        
-          <IonButton expand='full' className="w-full border-amber-800 border-2 rounded-lg " onClick={handleSignUp}>
+          {loginButton}
+
+          <IonButton expand="full" className="w-full border-amber-800 border-2 rounded-lg " onClick={handleSignUp}>
             {t('authentication.signUp')}
           </IonButton>
 
