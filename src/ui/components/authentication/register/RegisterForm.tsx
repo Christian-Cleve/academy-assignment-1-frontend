@@ -8,6 +8,7 @@ import Separator from 'ui/components/generic/Separator';
 import { useAuthUserStore } from 'store/user';
 import { Provider } from '@supabase/supabase-js';
 import { t } from 'i18next';
+import { Center } from 'ui/components/generic/Center';
 
 type RegisterFormProps = {
   togglePasswordButtonType?: 'text' | 'icon' | 'none';
@@ -29,6 +30,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ togglePasswordButtonType = 
   const [emailValid, setEmailValid] = useState<boolean>(true);
   const [passwordValid, setPasswordValid] = useState<boolean>(true);
   const [repPasswordValid, setRepPasswordValid] = useState<boolean>(true);
+  const [userId, setUserId] = useState<string>('');
 
   useEffect(() => {
     const emailRegex =
@@ -110,58 +112,100 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ togglePasswordButtonType = 
     }
   };
 
-  return (
-    <div className="flex h-full justify-center items-center w-full">
-      <form className="sm:w-[400px] w-3/4 relative" onSubmit={handleSignUp}>
-        <div className="flex items-center">
-          <IonIcon onClick={() => history.goBack()} icon={chevronBackCircle} size={'large'} color={'primary-brand'} className="pr-2 cursor-pointer" />
-          <IonText className="text-primary-brand text-xl font-extrabold">{t('authentication.signUp')}</IonText>
-        </div>
-        <IonItem lines="none" color={'white-background'} className={`border ${emailValid ? 'border-grey-text' : 'border-red-300'} mt-8`}>
-          <IonInput value={email} placeholder={t('authentication.email')} onIonChange={(e) => setEmail(e.detail.value ?? '')} type="email" required class="h-[59px] items-center" />
-          <IonIcon icon={at} size="medium" className="text-primary-brand" />
-        </IonItem>
+  let sigInButton;
 
-        <IonText className={`text-red-500 ${emailValid && 'opacity-0'}`}>{t('authentication.emailInvalid')}</IonText>
-
-        <IonItem lines="none" color={'white-background'} className={`border ${passwordValid ? 'border-grey-text' : 'border-red-300'}`}>
-          <IonInput
-            value={password}
-            placeholder={t('authentication.password')}
-            onIonChange={(e) => setPassword(e.detail.value ?? '')}
-            type={passwordShown ? 'text' : 'password'}
-            required
-            class="h-[59px] items-center"
-          />
-          {password !== '' && togglePasswordButton(false)}
-          {password === '' && (
-            <IonIcon icon={lockClosedOutline} size="medium" className="text-primary-brand" />
-          )}
-        </IonItem>
-
-        <IonText className={`text-red-500 ${passwordValid && 'opacity-0'}`}>{t('authentication.passwordMinLength')}</IonText>
-
-        <IonItem lines="none" color={'white-background'} className={`border ${repPasswordValid ? 'border-grey-text' : 'border-red-300'}`}>
-          <IonInput
-            value={repeatedPassword}
-            placeholder={t('authentication.repeatPassword')}
-            onIonChange={(e) => setRepeatedPassword(e.detail.value ?? '')}
-            type={repeatedPasswordShown ? 'text' : 'password'}
-            required
-            class="h-[59px] items-center"
-          />
-          {repeatedPassword !== '' && togglePasswordButton(true)}
-          {repeatedPassword === '' && (
-            <IonIcon icon={lockClosedOutline} size="medium" className="text-primary-brand" />
-          )}
-        </IonItem>
-
-        <IonText className={`text-red-500 ${repPasswordValid && 'opacity-0'}`}>{t('authentication.passwordMustMatch')}</IonText>
-
-        <IonButton expand="full" className="w-full mb-2" onClick={handleSignUp} disabled={isDisabled}>
+  if (!isDisabled) {
+    sigInButton = (
+      <Center>
+        <IonButton expand="full" className="w-[250px] mb-2 rounded-lg border-amber-800 border-2" onClick={handleSignUp} disabled={isDisabled}>
           {t('authentication.signUp')}
         </IonButton>
         <button className="hidden" type="submit" />
+      </Center>
+    );
+  } else {
+    sigInButton = (
+      <Center>
+        <IonButton expand="full" className="w-[250px] mb-2" onClick={handleSignUp} disabled={isDisabled}>
+          {t('authentication.signUp')}
+        </IonButton>
+        <button className="hidden" type="submit" />
+      </Center>
+    );
+  }
+
+  return (
+    <div className="flex h-full justify-center items-center w-full  bg-cozy-brown">
+      <form className="sm:w-[400px] w-3/4 relative bg-stone-900 rounded-3xl p-5" onSubmit={handleSignUp}>
+        <div className="flex items-center">
+          <IonIcon
+            onClick={() => history.goBack()}
+            icon={chevronBackCircle}
+            size={'large'}
+            color={'primary-brand'}
+            className=" cursor-pointer bg-amber-800 rounded-full overflow-hidden"
+          />
+          <Center>
+            <IonText className=" text-white text-xl font-extrabold">{t('authentication.signUp')}</IonText>
+          </Center>
+        </div>
+
+        <Center>
+          <IonItem lines="none" color={'white-background'} className={`border ${emailValid ? 'border-grey-text' : 'border-red-300'} mt-8 rounded-lg`}>
+            <IonInput
+              value={email}
+              placeholder={t('authentication.email')}
+              onIonChange={(e) => setEmail(e.detail.value ?? '')}
+              type="email"
+              required
+              class="h-[59px] items-center"
+            />
+            <IonIcon icon={at} size="medium" className="text-primary-brand" />
+          </IonItem>
+        </Center>
+
+        <Center>
+          <IonText className={`text-red-500 ${emailValid && 'opacity-0'}`}>{t('authentication.emailInvalid')}</IonText>
+        </Center>
+
+        <Center>
+          <IonItem lines="none" color={'white-background'} className={`border ${passwordValid ? 'border-grey-text' : 'border-red-300'} rounded-lg`}>
+            <IonInput
+              value={password}
+              placeholder={t('authentication.password')}
+              onIonChange={(e) => setPassword(e.detail.value ?? '')}
+              type={passwordShown ? 'text' : 'password'}
+              required
+              class="h-[59px] items-center"
+            />
+            {password !== '' && togglePasswordButton(false)}
+            {password === '' && <IonIcon icon={lockClosedOutline} size="medium" className="text-primary-brand" />}
+          </IonItem>
+        </Center>
+
+        <Center>
+          <IonText className={`text-red-500 ${passwordValid && 'opacity-0'}`}>{t('authentication.passwordMinLength')}</IonText>
+        </Center>
+        <Center>
+          <IonItem lines="none" color={'white-background'} className={`border ${repPasswordValid ? 'border-grey-text' : 'border-red-300'} rounded-lg`}>
+            <IonInput
+              value={repeatedPassword}
+              placeholder={t('authentication.repeatPassword')}
+              onIonChange={(e) => setRepeatedPassword(e.detail.value ?? '')}
+              type={repeatedPasswordShown ? 'text' : 'password'}
+              required
+              class="h-[59px] items-center"
+            />
+            {repeatedPassword !== '' && togglePasswordButton(true)}
+            {repeatedPassword === '' && <IonIcon icon={lockClosedOutline} size="medium" className="text-primary-brand" />}
+          </IonItem>
+        </Center>
+
+        <Center>
+          <IonText className={`text-red-500 ${repPasswordValid && 'opacity-0'}`}>{t('authentication.passwordMustMatch')}</IonText>
+        </Center>
+
+        {sigInButton}
 
         <Separator text={t('authentication.or')} />
 

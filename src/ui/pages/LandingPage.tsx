@@ -16,11 +16,13 @@ const LandingPage: React.FC = () => {
     <IonPage>
       <IonContent fullscreen >
       <IonImg src={img2} class="object-cover h-full blur-sm"/>
-        <IonImg src={img} class="top-48 rounded-full overflow-hidden m-8 fixed content-center" />
+      <Center>
+        <IonImg src={img} class="top-48 rounded-full overflow-hidden m-8 fixed w-80 object-cover" />
+      </Center>
        
-          <div className=" fixed w-full bg-indigo-50 bottom-0 m-0 rounded-full opacity-60 flex flex-col items-center">
-            <h3 className='text-center font-Norse'> {t('authentication.signUp')} </h3>
-          <p className="pb-4 text-center font-Norse font-bold">Din app-udviklings template til alle behov dine app-udviklings behov!</p>
+          <div className=" fixed w-full bg-indigo-50 bottom-0 m-0 rounded-full opacity-50 flex flex-col items-center">
+            <h3 className='text-center font-Norse'> {t('landingPage.welcome')} </h3>
+          <p className="pb-4 text-center font-Norse font-bold">{t('landingPage.indexText')}</p>
           <IonButton onClick={() => router.push('/login')} className='rounded-full overflow-hidden object-center'>
             Kom i gang
           </IonButton>

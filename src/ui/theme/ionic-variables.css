@@ -4,7 +4,7 @@ http://ionicframework.com/docs/theming/ */
 /** Ionic CSS Variables **/
 :root {
   /** Overrides */
-  --ion-background-color: rgb(2, 95, 165);
+  --ion-background-color: white;
 
   /** primary **/
   --ion-color-primary: var(--primary-color);
@@ -96,6 +96,28 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-white-text-contrast-rgb: 0, 0, 0;
   --ion-color-white-text-shade: #e0e0e0;
   --ion-color-white-text-tint: #ffffff;
+/*Own creation */
+  --ion-color-back: #2ac016;
+	--ion-color-back-rgb: 42,192,22;
+	--ion-color-back-contrast: #ffffff;
+	--ion-color-back-contrast-rgb: 255,255,255;
+	--ion-color-back-shade: #25a913;
+	--ion-color-back-tint: #3fc62d;
+
+  --ion-color-god-back:  #903f0e;
+	--ion-color-god-back-rgb: 144,63,14;
+	--ion-color-god-back-contrast: #ffffff;
+	--ion-color-god-back-contrast-rgb: 255,255,255;
+	--ion-color-god-back-shade: #7f370c;
+	--ion-color-god-back-tint: #9b5226;
+
+  --ion-color-back-back: #002524;
+	--ion-color-back-back-rgb: 0,37,36;
+	--ion-color-back-back-contrast: #ffffff;
+	--ion-color-back-back-contrast-rgb: 255,255,255;
+	--ion-color-back-back-shade: #002120;
+	--ion-color-back-back-tint: #1a3b3a;
+
 }
 
 .ion-color-primary-brand {
@@ -150,4 +172,29 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-contrast-rgb: var(--ion-color-white-text-contrast-rgb);
   --ion-color-shade: var(--ion-color-white-text-shade);
   --ion-color-tint: var(--ion-color-white-text-tint);
+}
+.ion-color-back {
+	--ion-color-base: var(--ion-color-back);
+	--ion-color-base-rgb: var(--ion-color-back-rgb);
+	--ion-color-contrast: var(--ion-color-back-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-back-contrast-rgb);
+	--ion-color-shade: var(--ion-color-back-shade);
+	--ion-color-tint: var(--ion-color-back-tint);
+}
+.ion-color-god-back {
+	--ion-color-base: var(--ion-color-god-back);
+	--ion-color-base-rgb: var(--ion-color-god-back-rgb);
+	--ion-color-contrast: var(--ion-color-god-back-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-god-back-contrast-rgb);
+	--ion-color-shade: var(--ion-color-god-back-shade);
+	--ion-color-tint: var(--ion-color-god-back-tint);
+}
+
+.ion-color-back-back {
+	--ion-color-base: var(--ion-color-back-back);
+	--ion-color-base-rgb: var(--ion-color-back-back-rgb);
+	--ion-color-contrast: var(--ion-color-back-back-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-back-back-contrast-rgb);
+	--ion-color-shade: var(--ion-color-back-back-shade);
+	--ion-color-tint: var(--ion-color-back-back-tint);
 }

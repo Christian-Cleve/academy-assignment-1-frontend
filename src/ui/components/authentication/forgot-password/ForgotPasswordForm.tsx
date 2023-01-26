@@ -4,6 +4,7 @@ import { IonButton, IonIcon, IonInput, IonItem, IonText, useIonLoading, useIonAl
 import { supabase } from 'apis/supabaseClient';
 import { at, chevronBackCircle } from 'ionicons/icons';
 import { t } from 'i18next';
+import { Center } from 'ui/components/generic/Center';
 
 type ForgotPasswordProps = {
   iconsDisabled?: boolean;
@@ -56,23 +57,51 @@ const ForgotPasswordForm: React.FC<ForgotPasswordProps> = ({ iconsDisabled = fal
     }
   };
 
+  let forgottenPassWordButton;
+  if(!isDisabled){
+    forgottenPassWordButton=(
+   <Center>
+    <IonButton expand="full" type="submit" className="w-[250px] mb-2 border-amber-800 border-2" disabled={isDisabled}>
+        {t('authentication.sendResetLink')}
+    </IonButton>;
+  </Center>);
+  }else{
+    forgottenPassWordButton=(
+      <Center>
+      <IonButton expand="full" type="submit" className="w-[250px] mb-2 rounded-lg" disabled={isDisabled}>
+      {t('authentication.sendResetLink')}
+    </IonButton>
+      </Center>);
+  }
+
+
+  
+
   return (
-    <div className="flex h-full justify-center items-center w-full">
-      <form className="sm:w-[400px] w-3/4 relative" onSubmit={handleSendPasswordReset}>
+    <div className="flex h-full justify-center items-center w-full bg-cozy-brown r">
+      <form className="sm:w-[400px] w-3/4 relative bg-stone-900 rounded-3xl p-5" onSubmit={handleSendPasswordReset}>
+
         <div className="flex items-center">
-          <IonIcon onClick={() => history.goBack()} icon={chevronBackCircle} size={'large'} color={'primary-brand'} className="pr-2 cursor-pointer" />
-          <IonText className="text-primary-brand text-xl font-extrabold">{t('authentication.resetPassword')}</IonText>
+          <IonIcon onClick={() => history.goBack()} icon={chevronBackCircle} size={'large'} color={'primary-brand'} className=" cursor-pointer bg-amber-900 rounded-full overflow-hidden" />
+         <Center>
+            <IonText className="p-2 text-white text-xl font-extrabold">{t('authentication.resetPassword')}</IonText>
+         </Center>
         </div>
-        <IonItem lines="none" color={'white-background'} className={`border ${emailValid ? 'border-grey-text' : 'border-red-300'} mt-8`}>
-          <IonInput value={email} placeholder={t('authentication.email')} onIonChange={(e) => setEmail(e.detail.value ?? '')} type="email" required class="h-[59px] items-center" />
-          {!iconsDisabled && <IonIcon icon={at} size="medium" className="text-primary-brand" />}
-        </IonItem>
 
-        <IonText className={`text-red-500 ${emailValid && 'opacity-0'}`}>{t('authentication.emailInvalid')}</IonText>
+        <Center>
+          <IonItem lines="none" color={'white-background'} className={`border ${emailValid ? 'border-grey-text' : 'border-red-300'} mt-8 rounded-lg`}>
+           <IonInput value={email} placeholder={t('authentication.email')} onIonChange={(e) => setEmail(e.detail.value ?? '')} type="email" required class="h-[59px] items-center" />
+              {!iconsDisabled && <IonIcon icon={at} size="medium" className="text-primary-brand" />}
+            </IonItem>
+        </Center>
+        
+        
+        <Center>
+          <IonText className={`text-red-500 ${emailValid && 'opacity-0'}`}>{t('authentication.emailInvalid')}</IonText> 
+        </Center>
 
-        <IonButton expand="full" type="submit" className="w-full mb-2" disabled={isDisabled}>
-          {t('authentication.sendResetLink')}
-        </IonButton>
+       {forgottenPassWordButton}
+
       </form>
     </div>
   );

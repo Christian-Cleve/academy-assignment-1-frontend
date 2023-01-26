@@ -19,7 +19,7 @@ import {
   IonButton,
   useIonRouter,
 } from '@ionic/react';
-import { peopleOutline, ticketOutline, walletOutline, cameraOutline } from 'ionicons/icons';
+import { peopleOutline, ticketOutline, walletOutline, cameraOutline, bonfireOutline, addCircle, addCircleOutline } from 'ionicons/icons';
 
 import Tab1 from './tabs/tab-1/Tab1';
 import Tab2 from './tabs/tab-2/Tab2';
@@ -46,7 +46,7 @@ const HomePage: React.FC = () => {
   return (
     <IonPage id="main-content">
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar color={'back-back'}>
           <IonButton onClick={handleLogOut} slot="end">
             Log ud
           </IonButton>
@@ -62,13 +62,12 @@ const HomePage: React.FC = () => {
               {pages.map((p, i) => {
                 return <Route key={i} exact path={p.path} component={p.component} />;
               })}
-
               <Route exact path="/home">
                 <Redirect to={pages.filter((p) => p.redirect)[0].path} />
               </Route>
             </IonRouterOutlet>
 
-            <IonTabBar slot="bottom" color={'white-background'} class={'h-[70px] border-t-[1px] border'}>
+            <IonTabBar slot="bottom" class={'h-[70px] border-t-[1px] border'} color={'back-back'}>
               {pages.map((p, i) => {
                 return (
                   <IonTabButton key={i} tab={`tab${i}`} href={p.path}>
@@ -88,32 +87,25 @@ export default HomePage;
 
 const pages = [
   {
-    name: 'photo',
-    icon: cameraOutline,
-    path: '/tab1',
-    component: Tab1,
-    redirect: true,
-  },
-  {
-    name: 'people',
-    icon: peopleOutline,
+    name: 'add-god',
+    icon: addCircleOutline,
     path: '/tab2',
     component: Tab2,
     redirect: false,
   },
   {
-    name: 'ticket',
-    icon: ticketOutline,
+    name: 'home-place',
+    icon: bonfireOutline,
     path: '/tab3',
     component: Tab3,
     redirect: false,
   },
   {
-    name: 'wallet',
-    icon: walletOutline,
+    name: 'info-page',
+    icon: peopleOutline,
     path: '/tab4',
     component: Tab4,
-    redirect: false,
+    redirect: true,
   },
 ];
 

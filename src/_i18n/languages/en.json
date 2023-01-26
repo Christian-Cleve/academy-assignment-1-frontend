@@ -1,7 +1,16 @@
 {
   "landingPage": {
     "title": "Welcome to MeeWs frontend template",
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "welcome": "Welcome",
+    "indexText":"Din app-udviklings template til alle behov dine app-udviklings behov!",
+    "name":"Name",
+    "email":"E-Mail",
+    "password":"Password",
+    "changePass":"Change Password? and Email?",
+    "profile":"Profile",
+    "error":"Error"
+    
   },
   "authentication": {
     "login": "Login",
@@ -32,6 +41,7 @@
     "sendingEmail": "Sending email...",
     "resetLinkSent": "Reset link sent",
     "ifAccountExists": "If an account exists, a password reset link has been sent.",
-    "sendResetLink": "Send reset link"
+    "sendResetLink": "Send reset link",
+    "update":"Update"
   }
 }
